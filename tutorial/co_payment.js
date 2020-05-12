@@ -64,3 +64,30 @@ window.addEventListener("load", function(){
 
 });
 
+window.addEventListener("load", function() {
+   this.document.getElementById("subButton").onclick = runSubmit;
+   this.document.getElementById("cardName").oninput = validateName;
+})
+
+function runSubmit() {
+   validateName();
+   validateCredit();
+}
+
+function validateCredit() {
+   var creditCard = document.forms.payment.elements.credits[0];
+   if(creditCard.validity.valueMissing){
+      creditCard.setCustomVaidity("Select your credit card");
+   } else{
+      creditCard.setCustomVaidity("")
+   }
+}
+
+function validateName() {
+   var cardName = document.getElementById('cardName');
+   if(cardName.validity.valueMissing){
+      cardName.setCustomValidity('Enter your name as it as it appears on the card');
+   } else {
+      cardName.setCustomVaidity("");
+   }
+}

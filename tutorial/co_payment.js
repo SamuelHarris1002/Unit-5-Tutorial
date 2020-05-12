@@ -120,7 +120,7 @@ function validateNumber() {
    } else if(cardNumber.validity.patternMismatch){
       cardNumber.setCustomValidity("Enter a valid card number");
    } else if (luhn(cardNumber.value) === false) {
-      cardNumber.setCustomValidity("Enter a legitimate card number")
+      cardNumber.setCustomValidity("Enter a legitimate card number");
    } else {
       cardNumber.setCustomValidity("");
    }
